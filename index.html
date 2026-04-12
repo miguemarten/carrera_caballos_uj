@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏇 Desafío: Galope con Propósito — Avances Semanales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* ──────────────────────────────────────────
+       ⚙️  VARIABLES GLOBALES
+       ────────────────────────────────────────── */
+        :root {
+            --bg-dark: #0a0a1a;
+            --bg-lane-even: #0f1128;
+            --bg-lane-odd: #12152f;
+            --track-bg: #1a1d3a;
+            --finish-gold: #ffe66d;
+            --accent-cyan: #00fff5;
+            --accent-magenta: #ff2975;
+            --accent-green: #7fff00;
+            --text-main: #e0e0ff;
+            --text-dim: #6666aa;
+            --font-pixel: 'Press Start 2P', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-pixel);
+            background: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── BARRA SUPERIOR ── */
+        .top-bar {
+            background: linear-gradient(90deg, #0f0e17, #1a1932, #0f0e17);
+            border-bottom: 3px solid var(--accent-cyan);
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            box-shadow: 0 4px 30px #00fff520;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-bar h1 {
+            font-size: 13px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 15px #00fff5aa;
+            letter-spacing: 2px;
+        }
+
+        .top-bar .meta-info {
+            font-size: 8px;
+            color: var(--finish-gold);
+            text-shadow: 0 0 8px #ffe66d80;
+        }
+
+        /* ── CONTENEDOR DE PISTA ── */
+        .race-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 8px 0;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* ── CARRIL INDIVIDUAL ── */
+        .lane {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            min-height: 40px;
+            max-height: 90px;
+            padding: 2px 0;
+            position: relative;
+            border-bottom: 1px solid #1a1d4a;
+            transition: flex 0.3s ease;
+        }
+
+        .lane:nth-child(odd) {
+            background: var(--bg-lane-odd);
+        }
+
+        .lane:nth-child(even) {
+            background: var(--bg-lane-even);
+        }
+
+        .lane:hover {
+            background: #181c40;
+        }
+
+        /* Nombre del participante (izquierda) */
+        .lane-label {
+            width: 140px;
+            padding: 0 10px;
+            font-size: 7px;
+            color: var(--text-main);
+            text-align: right;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-shrink: 0;
+            z-index: 2;
+            text-shadow: 0 0 6px #00000080;
+            line-height: 1.4;
+        }
+
+        .lane-score {
+            font-size: 6px;
+            color: var(--text-dim);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Pista (track) */
+        .lane-track {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            margin: 0 6px;
+            background:
+                repeating-linear-gradient(90deg, transparent, transparent 48px, #ffffff08 48px, #ffffff08 50px);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Barra de progreso interior */
+        .lane-progress {
+            position: absolute;
+            top: 15%;
+            bottom: 15%;
+            left: 0;
+            border-radius: 3px;
+            transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            min-width: 36px;
+        }
+
+        .lane-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, #ffffff25 0%, transparent 50%, #00000020 100%);
+            border-radius: 3px;
+        }
+
+        /* Avatar / Caballo */
+        .horse {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 3;
+            position: relative;
+            /* Animación de galope */
+            animation: gallop 0.4s steps(2) infinite;
+        }
+
+        .horse img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 10px #00000080;
+        }
+
+        @keyframes gallop {
+            0% {
+                transform: translateY(-1px);
+            }
+
+            50% {
+                transform: translateY(1px);
+            }
+        }
+
+        /* ── LÍNEA DE META ── */
+        .finish-line {
+            position: absolute;
+            right: 16px;
+            top: 0;
+            bottom: 0;
+            width: 12px;
+            z-index: 5;
+            background:
+                repeating-linear-gradient(180deg,
+                    #fff 0px, #fff 6px,
+                    #111 6px, #111 12px);
+            opacity: 0.7;
+            box-shadow: 0 0 15px #ffe66d60;
+        }
+
+        .finish-flag {
+            position: absolute;
+            top: -4px;
+            right: 20px;
+            font-size: 14px;
+            z-index: 6;
+        }
+
+        /* ── LÍNEA INTERMEDIA ── */
+        .lane-halfway {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            z-index: 1;
+            background: repeating-linear-gradient(180deg, var(--accent-cyan) 0px, var(--accent-cyan) 6px, transparent 6px, transparent 12px);
+            opacity: 0.5;
+            transform: translateX(-50%);
+        }
+
+        .halfway-label {
+            position: absolute;
+            top: 4px;
+            left: 6px;
+            font-size: 6px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 5px #000000;
+            white-space: nowrap;
+        }
+
+        /* ── OVERLAY GANADOR ── */
+        .winner-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #000000cc;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fade-in 0.5s ease;
+        }
+
+        .winner-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .winner-text {
+            font-size: 28px;
+            color: var(--finish-gold);
+            text-shadow: 0 0 30px #ffe66d, 0 0 60px #ff6600;
+            animation: winner-pulse 0.5s infinite alternate, winner-blink 0.3s steps(1) infinite;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @keyframes winner-pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes winner-blink {
+            0% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            71% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .winner-name {
+            font-size: 20px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 25px #00fff5;
+            margin-top: 16px;
+            animation: winner-pulse 0.6s infinite alternate;
+        }
+
+        .winner-close {
+            margin-top: 30px;
+            font-family: var(--font-pixel);
+            font-size: 9px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .winner-close:hover {
+            background: #00fff520;
+        }
+
+        /* ── CONFETTI 8-BIT ── */
+        .confetti-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99;
+            overflow: hidden;
+        }
+
+        .confetti-pixel {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            image-rendering: pixelated;
+            animation: confetti-fall linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* ── PISTA VACÍA ── */
+        .empty-race {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .empty-race .big-horse {
+            font-size: 64px;
+            animation: gallop 0.5s steps(2) infinite;
+        }
+
+        .empty-race p {
+            font-size: 10px;
+            color: var(--text-dim);
+            text-align: center;
+            line-height: 2;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .lane-label {
+                width: 90px;
+                font-size: 6px;
+            }
+
+            .top-bar h1 {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="top-bar">
+        <h1>🏇 GALOPE CON PROPÓSITO — AVANCES</h1>
+        <div class="meta-info">META: <span id="metaDisplay">50</span> PTS</div>
+    </div>
+
+    <!-- CONTENEDOR DE CARRILES -->
+    <div class="race-container" id="raceContainer">
+        <div class="empty-race">
+            <div class="big-horse">🐴</div>
+            <p>Cargando participantes...</p>
+        </div>
+    </div>
+
+    <!-- OVERLAY DE GANADOR -->
+    <div class="winner-overlay" id="winnerOverlay">
+        <div class="winner-text">🏆 ¡GANADOR! 🏆</div>
+        <div class="winner-name" id="winnerName"></div>
+        <button class="winner-close" onclick="cerrarOverlay()">CONTINUAR ▶</button>
+    </div>
+
+    <!-- CONTENEDOR DE CONFETTI -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <script>
+        // ──────────────────────────────────────────
+        // ⚙️  Estado y Configuración Estática
+        // ──────────────────────────────────────────
+        let participantes = [];
+        // Estos valores coinciden con los que tienes en app.py:
+        const puntajeMeta = 50;
+        const puntajeIntermedio = 25;
+        let winnersShown = new Set(); // evitar re-mostrar overlay
+
+        // Colores vibrantes para los carriles
+        const COLORES = [
+            '#ff2975', '#00fff5', '#ffe66d', '#7fff00', '#a855f7',
+            '#ff6b9d', '#4da6ff', '#ff9f43', '#2ed573', '#ffa502',
+            '#e84393', '#74b9ff', '#fd79a8', '#55efc4', '#fdcb6e'
+        ];
+
+        // Emojis de caballos para variedad
+        const HORSE_EMOJIS = ['🐴', '🏇', '🦄', '🐎'];
+
+        // ──────────────────────────────────────────
+        // 📡  Obtención de Datos (Static Fetch)
+        // ──────────────────────────────────────────
+        async function cargarDatosEstaticos() {
+            try {
+                // Se consulta directamente el archivo JSON que subiste a GitHub.
+                // Usamos un query param (time) para engañar al caché del navegador
+                // y asegurarnos de que cargue siempre la versión más reciente.
+                const res = await fetch(`participantes.json?t=${new Date().getTime()}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    const oldParticipantes = participantes;
+                    participantes = data || [];
+                    document.getElementById('metaDisplay').textContent = puntajeMeta;
+                    renderCarrera(oldParticipantes);
+                } else {
+                    console.error('No se pudo encontrar participantes.json');
+                }
+            } catch (e) {
+                console.error('Error cargando datos estáticos:', e);
+            }
+        }
+
+        // ──────────────────────────────────────────
+        // 🎨  Render de la carrera
+        // ──────────────────────────────────────────
+        function renderCarrera(oldData) {
+            const container = document.getElementById('raceContainer');
+
+            if (!participantes || participantes.length === 0) {
+                container.innerHTML = `
+          <div class="empty-race">
+            <div class="big-horse">🐴</div>
+            <p>Todavía no hay participantes.</p>
+          </div>`;
+                return;
+            }
+
+            container.innerHTML = participantes.map((p, idx) => {
+                const color = COLORES[idx % COLORES.length];
+                const pct = Math.min(100, (p.puntaje / puntajeMeta) * 100);
+                // Ancho de progreso: mínimo 36px, máximo = (100% - espacio de meta)
+                const widthPct = 2 + (pct * 0.88); // escalar de 2% a 90%
+                const isWinner = p.puntaje >= puntajeMeta;
+                const horseEmoji = HORSE_EMOJIS[idx % HORSE_EMOJIS.length];
+
+                const currentEmoji = p.emoji || horseEmoji;
+
+                // Avatar: imagen o emoji (funciona si la carpeta img_uj está alojada en GitHub Pages)
+                const avatarContent = p.ruta_imagen
+                    ? `<img src="${p.ruta_imagen}" alt="${p.nombre}">`
+                    : currentEmoji;
+
+                const halfPct = Math.min(100, (puntajeIntermedio / puntajeMeta) * 100);
+                const halfWidthPct = 2 + (halfPct * 0.88);
+
+                return `
+          <div class="lane" id="lane-${p.id}">
+            <div class="lane-label">
+              ${p.nombre}
+              <span class="lane-score">${p.puntaje} pts</span>
+            </div>
+            <div class="lane-track">
+              <div class="lane-halfway" style="left: ${halfWidthPct}%;">
+                ${idx === 0 ? `<div class="halfway-label">${puntajeIntermedio} pts</div>` : ''}
+              </div>
+              <div class="lane-progress" style="width:${widthPct}%; background:${color}80;">
+                <div class="horse">${avatarContent}</div>
+              </div>
+            </div>
+          </div>
+        `;
+            }).join('') + `
+        <div class="finish-line"></div>
+        <div class="finish-flag">🏁</div>
+      `;
+
+            // Detectar nuevos ganadores
+            participantes.forEach(p => {
+                if (p.puntaje >= puntajeMeta && !winnersShown.has(p.id)) {
+                    const oldP = (oldData || []).find(o => o.id === p.id);
+                    if (!oldP || oldP.puntaje < puntajeMeta) {
+                        winnersShown.add(p.id);
+                        mostrarGanador(p.nombre);
+                    }
+                }
+            });
+
+            const allZero = participantes.every(p => p.puntaje === 0);
+            if (allZero) {
+                winnersShown.clear();
+            }
+        }
+
+        // ──────────────────────────────────────────
+        // 🏆  Animación de ganador
+        // ──────────────────────────────────────────
+        function mostrarGanador(nombre) {
+            document.getElementById('winnerName').textContent = nombre;
+            document.getElementById('winnerOverlay').classList.add('active');
+            lanzarConfetti();
+        }
+
+        function cerrarOverlay() {
+            document.getElementById('winnerOverlay').classList.remove('active');
+            document.getElementById('confettiContainer').innerHTML = '';
+        }
+
+        // ──────────────────────────────────────────
+        // 🎊  Confetti 8-bit
+        // ──────────────────────────────────────────
+        function lanzarConfetti() {
+            const container = document.getElementById('confettiContainer');
+            container.innerHTML = '';
+            const colores = ['#ff2975', '#00fff5', '#ffe66d', '#7fff00', '#a855f7', '#ff6b9d', '#4da6ff', '#ff9f43'];
+
+            for (let i = 0; i < 80; i++) {
+                const pixel = document.createElement('div');
+                pixel.className = 'confetti-pixel';
+                const size = 6 + Math.random() * 8;
+                pixel.style.width = size + 'px';
+                pixel.style.height = size + 'px';
+                pixel.style.background = colores[Math.floor(Math.random() * colores.length)];
+                pixel.style.left = Math.random() * 100 + '%';
+                pixel.style.top = -20 + 'px';
+                pixel.style.animationDuration = (2 + Math.random() * 3) + 's';
+                pixel.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(pixel);
+            }
+
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    const pixel = document.createElement('div');
+                    pixel.className = 'confetti-pixel';
+                    const size = 4 + Math.random() * 10;
+                    pixel.style.width = size + 'px';
+                    pixel.style.height = size + 'px';
+                    pixel.style.background = colores[Math.floor(Math.random() * colores.length)];
+                    pixel.style.left = Math.random() * 100 + '%';
+                    pixel.style.top = -20 + 'px';
+                    pixel.style.animationDuration = (2.5 + Math.random() * 2.5) + 's';
+                    pixel.style.animationDelay = Math.random() * 1.5 + 's';
+                    container.appendChild(pixel);
+                }
+            }, 1500);
+        }
+
+        // ──────────────────────────────────────────
+        // 🚀  Init
+        // ──────────────────────────────────────────
+        // Cargar inmediatamente la primera vez
+        cargarDatosEstaticos();
+
+        // Opcional: Volver a buscar el JSON cada 30 segundos
+        // para que si dejas la pantalla abierta y haces git push, 
+        // se actualice solo sin tener que recargar.
+        setInterval(cargarDatosEstaticos, 30000);
+    </script>
+</body>
+
+</html>
