@@ -583,7 +583,7 @@
 
         async function cargarSesion() {
             const data = await api('/api/participantes');
-            participantes = data;
+            participantes = (data || []).sort((a, b) => a.nombre.localeCompare(b.nombre));
             renderLista();
             toast('Sesión cargada', 'info');
         }

@@ -134,7 +134,7 @@
             background:
                 repeating-linear-gradient(90deg, transparent, transparent 48px, #ffffff08 48px, #ffffff08 50px);
             border-radius: 4px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         /* Barra de progreso interior */
@@ -196,28 +196,30 @@
             }
         }
 
-        /* ── LÍNEA DE META ── */
-        .finish-line {
+        /* ── LÍNEA DE META (POR CARRIL - OPTIMIZADA) ── */
+        .lane-finish {
             position: absolute;
-            right: 16px;
-            top: 0;
-            bottom: 0;
-            width: 12px;
-            z-index: 5;
-            background:
-                repeating-linear-gradient(180deg,
-                    #fff 0px, #fff 6px,
-                    #111 6px, #111 12px);
-            opacity: 0.7;
-            box-shadow: 0 0 15px #ffe66d60;
+            left: 90%;
+            top: -6px;
+            bottom: -6px; /* Se entrelaza perfectamente con los demás carriles */
+            width: 14px;
+            z-index: 2; /* Debajo del caballo */
+            background: #ffffff; /* Línea continua blanca y minimalista */
+            opacity: 0.9;
+            transform: translateX(-50%);
+            box-shadow: 
+                0 0 15px rgba(255, 230, 109, 0.8),
+                0 0 30px rgba(255, 230, 109, 0.4); /* Fuerte resplandor neón dorado */
         }
 
         .finish-flag {
             position: absolute;
-            top: -4px;
-            right: 20px;
-            font-size: 14px;
-            z-index: 6;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 22px;
+            z-index: 20;
+            filter: drop-shadow(0 0 8px rgba(255, 230, 109, 0.8));
         }
 
         /* ── LÍNEA INTERMEDIA ── */
@@ -226,7 +228,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            z-index: 1;
+            z-index: 10;
             background: repeating-linear-gradient(180deg, var(--accent-cyan) 0px, var(--accent-cyan) 6px, transparent 6px, transparent 12px);
             opacity: 0.5;
             transform: translateX(-50%);
@@ -234,12 +236,60 @@
 
         .halfway-label {
             position: absolute;
-            top: 4px;
-            left: 6px;
-            font-size: 6px;
+            top: 6px;
+            left: 8px; /* Texto desplazado a la derecha de la línea */
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 7px;
             color: var(--accent-cyan);
-            text-shadow: 0 0 5px #000000;
+            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 0 8px var(--accent-cyan);
+            letter-spacing: 1px;
             white-space: nowrap;
+        }
+
+        /* ── LÍNEA DE RETIRO (7 PTS) ── */
+        .lane-retreat {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            z-index: 10;
+            background: repeating-linear-gradient(180deg, var(--accent-magenta) 0px, var(--accent-magenta) 6px, transparent 6px, transparent 12px);
+            opacity: 0.5;
+            transform: translateX(-50%);
+        }
+
+        .retreat-label {
+            position: absolute;
+            top: 6px;
+            left: 8px; /* Texto desplazado a la derecha de la línea */
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 7px;
+            color: var(--accent-magenta);
+            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 0 8px var(--accent-magenta);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        /* ── ESTRELLA DE HABILITADO ── */
+        .star-badge {
+            display: inline-block;
+            margin-left: 2px;
+            font-size: 8px;
+            color: var(--finish-gold);
+            text-shadow: 0 0 5px #ffaa00;
+            vertical-align: middle;
+        }
+
+        /* ── INSIGNIA DE DESCUENTO ── */
+        .discount-badge {
+            display: inline-block;
+            margin-left: 2px;
+            font-size: 8px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 5px #00fff5;
+            vertical-align: middle;
         }
 
         /* ── OVERLAY GANADOR ── */
@@ -453,7 +503,7 @@
                 if (res.ok) {
                     const data = await res.json();
                     const oldParticipantes = participantes;
-                    participantes = data || [];
+                    participantes = (data || []).sort((a, b) => a.nombre.localeCompare(b.nombre));
                     document.getElementById('metaDisplay').textContent = puntajeMeta;
                     renderCarrera(oldParticipantes);
                 } else {
@@ -497,15 +547,26 @@
                 const halfPct = Math.min(100, (puntajeIntermedio / puntajeMeta) * 100);
                 const halfWidthPct = 2 + (halfPct * 0.88);
 
+                const retreatPct = Math.min(100, (7 / puntajeMeta) * 100);
+                const retreatWidthPct = 2 + (retreatPct * 0.88);
+                const starBadge = p.puntaje >= 7 ? '<span class="star-badge" title="Habilitado al Retiro">⭐</span>' : '';
+                const discountBadge = p.puntaje >= puntajeIntermedio ? '<span class="discount-badge" title="Descuento en Polera">🏷️</span>' : '';
+
                 return `
-          <div class="lane" id="lane-${p.id}">
+          <div class="lane" id="lane-${p.id}" style="z-index: ${100 - idx};">
             <div class="lane-label">
-              ${p.nombre}
+              ${p.nombre} ${starBadge}${discountBadge}
               <span class="lane-score">${p.puntaje} pts</span>
             </div>
             <div class="lane-track">
               <div class="lane-halfway" style="left: ${halfWidthPct}%;">
-                ${idx === 0 ? `<div class="halfway-label">${puntajeIntermedio} pts</div>` : ''}
+                ${idx === 0 ? `<div class="halfway-label">${puntajeIntermedio} pts (Dscto. % Polera)</div>` : ''}
+              </div>
+              <div class="lane-retreat" style="left: ${retreatWidthPct}%;">
+                ${idx === 0 ? `<div class="retreat-label">7 pts (Retiro)</div>` : ''}
+              </div>
+              <div class="lane-finish">
+                ${idx === 0 ? `<div class="finish-flag">🏁</div>` : ''}
               </div>
               <div class="lane-progress" style="width:${widthPct}%; background:${color}80;">
                 <div class="horse">${avatarContent}</div>
@@ -513,10 +574,7 @@
             </div>
           </div>
         `;
-            }).join('') + `
-        <div class="finish-line"></div>
-        <div class="finish-flag">🏁</div>
-      `;
+            }).join('');
 
             // Detectar nuevos ganadores
             participantes.forEach(p => {
