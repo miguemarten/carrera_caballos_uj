@@ -37,7 +37,7 @@
   {
     "id": 8,
     "nombre": "Paulette",
-    "puntaje": 8,
+    "puntaje": 10,
     "ruta_imagen": "",
     "emoji": "🦖"
   },
@@ -58,7 +58,7 @@
   {
     "id": 11,
     "nombre": "Paz",
-    "puntaje": 10,
+    "puntaje": 13,
     "ruta_imagen": "",
     "emoji": "🐎"
   },
@@ -79,21 +79,21 @@
   {
     "id": 14,
     "nombre": "Maru",
-    "puntaje": 15,
+    "puntaje": 20,
     "ruta_imagen": "",
     "emoji": "🐅"
   },
   {
     "id": 15,
     "nombre": "Santi",
-    "puntaje": 10,
+    "puntaje": 13,
     "ruta_imagen": "",
     "emoji": "🐪"
   },
   {
     "id": 16,
     "nombre": "Samu",
-    "puntaje": 10,
+    "puntaje": 13,
     "ruta_imagen": "",
     "emoji": "🦙"
   },
@@ -149,7 +149,7 @@
   {
     "id": 24,
     "nombre": "Sofi",
-    "puntaje": 1,
+    "puntaje": 4,
     "ruta_imagen": "",
     "emoji": "🦄"
   },
@@ -187,5 +187,12 @@
     "puntaje": 3,
     "ruta_imagen": "",
     "emoji": "🦄"
+  },
+  {
+    "id": 30,
+    "nombre": "Esperanza",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🐕"
   }
 ]
