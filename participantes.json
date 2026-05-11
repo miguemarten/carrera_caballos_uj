@@ -16,7 +16,7 @@
   {
     "id": 5,
     "nombre": "Emi",
-    "puntaje": 19,
+    "puntaje": 23,
     "ruta_imagen": "",
     "emoji": "🦙"
   },
@@ -30,7 +30,7 @@
   {
     "id": 7,
     "nombre": "Rosita",
-    "puntaje": 12,
+    "puntaje": 15,
     "ruta_imagen": "",
     "emoji": "🐆"
   },
@@ -44,7 +44,7 @@
   {
     "id": 9,
     "nombre": "Mati",
-    "puntaje": 9,
+    "puntaje": 11,
     "ruta_imagen": "",
     "emoji": "🐴"
   },
@@ -58,7 +58,7 @@
   {
     "id": 11,
     "nombre": "Paz",
-    "puntaje": 13,
+    "puntaje": 17,
     "ruta_imagen": "",
     "emoji": "🐎"
   },
@@ -79,21 +79,21 @@
   {
     "id": 14,
     "nombre": "Maru",
-    "puntaje": 20,
+    "puntaje": 24,
     "ruta_imagen": "",
     "emoji": "🐅"
   },
   {
     "id": 15,
     "nombre": "Santi",
-    "puntaje": 13,
+    "puntaje": 14,
     "ruta_imagen": "",
     "emoji": "🐪"
   },
   {
     "id": 16,
     "nombre": "Samu",
-    "puntaje": 13,
+    "puntaje": 14,
     "ruta_imagen": "",
     "emoji": "🦙"
   },
@@ -121,14 +121,14 @@
   {
     "id": 20,
     "nombre": "Paula",
-    "puntaje": 3,
+    "puntaje": 4,
     "ruta_imagen": "",
     "emoji": "🐆"
   },
   {
     "id": 21,
     "nombre": "Isma",
-    "puntaje": 9,
+    "puntaje": 13,
     "ruta_imagen": "",
     "emoji": "🐴"
   },
@@ -142,7 +142,7 @@
   {
     "id": 23,
     "nombre": "Arturo",
-    "puntaje": 4,
+    "puntaje": 8,
     "ruta_imagen": "",
     "emoji": "🦓"
   },
@@ -156,14 +156,14 @@
   {
     "id": 25,
     "nombre": "Nacho",
-    "puntaje": 5,
+    "puntaje": 8,
     "ruta_imagen": "",
     "emoji": "🦓"
   },
   {
     "id": 26,
     "nombre": "German",
-    "puntaje": 2,
+    "puntaje": 6,
     "ruta_imagen": "",
     "emoji": "🐪"
   },
@@ -194,5 +194,19 @@
     "puntaje": 5,
     "ruta_imagen": "",
     "emoji": "🐕"
+  },
+  {
+    "id": 31,
+    "nombre": "Yarella",
+    "puntaje": 6,
+    "ruta_imagen": "",
+    "emoji": "🐴"
+  },
+  {
+    "id": 32,
+    "nombre": "Guille",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🦖"
   }
 ]
