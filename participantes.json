@@ -16,7 +16,7 @@
   {
     "id": 5,
     "nombre": "Emi",
-    "puntaje": 23,
+    "puntaje": 25,
     "ruta_imagen": "",
     "emoji": "🦙"
   },
@@ -30,21 +30,21 @@
   {
     "id": 7,
     "nombre": "Rosita",
-    "puntaje": 15,
+    "puntaje": 17,
     "ruta_imagen": "",
     "emoji": "🐆"
   },
   {
     "id": 8,
     "nombre": "Paulette",
-    "puntaje": 10,
+    "puntaje": 11,
     "ruta_imagen": "",
     "emoji": "🦖"
   },
   {
     "id": 9,
     "nombre": "Mati",
-    "puntaje": 11,
+    "puntaje": 12,
     "ruta_imagen": "",
     "emoji": "🐴"
   },
@@ -58,42 +58,42 @@
   {
     "id": 11,
     "nombre": "Paz",
-    "puntaje": 17,
+    "puntaje": 20,
     "ruta_imagen": "",
     "emoji": "🐎"
   },
   {
     "id": 12,
     "nombre": "Denisse",
-    "puntaje": 8,
+    "puntaje": 11,
     "ruta_imagen": "",
     "emoji": "🦄"
   },
   {
     "id": 13,
     "nombre": "Alondra",
-    "puntaje": 5,
+    "puntaje": 8,
     "ruta_imagen": "",
     "emoji": "🦓"
   },
   {
     "id": 14,
     "nombre": "Maru",
-    "puntaje": 24,
+    "puntaje": 27,
     "ruta_imagen": "",
     "emoji": "🐅"
   },
   {
     "id": 15,
     "nombre": "Santi",
-    "puntaje": 14,
+    "puntaje": 16,
     "ruta_imagen": "",
     "emoji": "🐪"
   },
   {
     "id": 16,
     "nombre": "Samu",
-    "puntaje": 14,
+    "puntaje": 16,
     "ruta_imagen": "",
     "emoji": "🦙"
   },
@@ -121,28 +121,28 @@
   {
     "id": 20,
     "nombre": "Paula",
-    "puntaje": 4,
+    "puntaje": 7,
     "ruta_imagen": "",
     "emoji": "🐆"
   },
   {
     "id": 21,
     "nombre": "Isma",
-    "puntaje": 13,
+    "puntaje": 15,
     "ruta_imagen": "",
     "emoji": "🐴"
   },
   {
     "id": 22,
     "nombre": "Maricel",
-    "puntaje": 10,
+    "puntaje": 11,
     "ruta_imagen": "",
     "emoji": "🐎"
   },
   {
     "id": 23,
     "nombre": "Arturo",
-    "puntaje": 8,
+    "puntaje": 10,
     "ruta_imagen": "",
     "emoji": "🦓"
   },
@@ -163,7 +163,7 @@
   {
     "id": 26,
     "nombre": "German",
-    "puntaje": 6,
+    "puntaje": 7,
     "ruta_imagen": "",
     "emoji": "🐪"
   },
@@ -177,7 +177,7 @@
   {
     "id": 28,
     "nombre": "Alonso",
-    "puntaje": 7,
+    "puntaje": 10,
     "ruta_imagen": "",
     "emoji": "🦒"
   },
@@ -208,5 +208,12 @@
     "puntaje": 4,
     "ruta_imagen": "",
     "emoji": "🦖"
+  },
+  {
+    "id": 33,
+    "nombre": "Bastian",
+    "puntaje": 2,
+    "ruta_imagen": "",
+    "emoji": "🐎"
   }
 ]
