@@ -588,7 +588,8 @@
         // ──────────────────────────────────────────
         async function cargarConfig() {
             const cfg = await api('/api/config');
-            categorias = cfg.categorias;
+            categorias = (cfg.categorias || []).map((cat, idx) => ({ ...cat, originalIndex: idx }));
+            categorias.sort((a, b) => a.nombre.localeCompare(b.nombre));
             puntajeMeta = cfg.puntaje_meta;
         }
 
@@ -690,8 +691,8 @@
                     </select>
                 ` : '';
 
-                const botones = categorias.map((cat, ci) => `
-          <button class="btn-pts cat-${ci}" onclick="asignarPuntos(${p.id}, ${cat.valor}, '${cat.nombre}')">
+                const botones = categorias.map((cat) => `
+          <button class="btn-pts cat-${cat.originalIndex}" onclick="asignarPuntos(${p.id}, ${cat.valor}, '${cat.nombre}')">
             <span class="pts-label">${cat.nombre}</span>
             <span class="pts-value">+${cat.valor}</span>
           </button>
