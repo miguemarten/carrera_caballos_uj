@@ -35,6 +35,7 @@ CATEGORIAS_PUNTOS = [
     {"nombre": "Traer Biblia",     "valor": 1},   # Botón 3
     {"nombre": "Memorización",     "valor": 1},   # Botón 4
     {"nombre": "Traer Visita",     "valor": 2},   # Botón 5
+    {"nombre": "Asistencia",       "valor": 1},   # Botón 6
 ]
 
 # Ruta del archivo de datos
