@@ -1,226 +1,292 @@
 [
-    {
-        "id": 2,
-        "nombre": "Josefa",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🐎"
+  {
+    "id": 2,
+    "nombre": "Josefa",
+    "puntaje": 3,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 3,
+    "nombre": "Marti",
+    "puntaje": 3,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 5,
+    "nombre": "Emi",
+    "puntaje": 31,
+    "ruta_imagen": "",
+    "emoji": "🦙",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 6,
+    "nombre": "Isi",
+    "puntaje": 12,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 7,
+    "nombre": "Rosita",
+    "puntaje": 18,
+    "ruta_imagen": "",
+    "emoji": "🐆",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 8,
+    "nombre": "Paulette",
+    "puntaje": 12,
+    "ruta_imagen": "",
+    "emoji": "🦖",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 9,
+    "nombre": "Mati",
+    "puntaje": 18,
+    "ruta_imagen": "",
+    "emoji": "🐴",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 10,
+    "nombre": "Franco",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🐅",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 11,
+    "nombre": "Paz",
+    "puntaje": 21,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 12,
+    "nombre": "Denisse",
+    "puntaje": 17,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 13,
+    "nombre": "Alondra",
+    "puntaje": 9,
+    "ruta_imagen": "",
+    "emoji": "🦓",
+    "desglose": {
+      "Asistencia": 1
     },
-    {
-        "id": 3,
-        "nombre": "Marti",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🦄"
-    },
-    {
-        "id": 5,
-        "nombre": "Emi",
-        "puntaje": 31,
-        "ruta_imagen": "",
-        "emoji": "🦙"
-    },
-    {
-        "id": 6,
-        "nombre": "Isi",
-        "puntaje": 12,
-        "ruta_imagen": "",
-        "emoji": "🐕"
-    },
-    {
-        "id": 7,
-        "nombre": "Rosita",
-        "puntaje": 18,
-        "ruta_imagen": "",
-        "emoji": "🐆"
-    },
-    {
-        "id": 8,
-        "nombre": "Paulette",
-        "puntaje": 12,
-        "ruta_imagen": "",
-        "emoji": "🦖"
-    },
-    {
-        "id": 9,
-        "nombre": "Mati",
-        "puntaje": 18,
-        "ruta_imagen": "",
-        "emoji": "🐴"
-    },
-    {
-        "id": 10,
-        "nombre": "Franco",
-        "puntaje": 4,
-        "ruta_imagen": "",
-        "emoji": "🐅"
-    },
-    {
-        "id": 11,
-        "nombre": "Paz",
-        "puntaje": 21,
-        "ruta_imagen": "",
-        "emoji": "🐎"
-    },
-    {
-        "id": 12,
-        "nombre": "Denisse",
-        "puntaje": 17,
-        "ruta_imagen": "",
-        "emoji": "🦄"
-    },
-    {
-        "id": 13,
-        "nombre": "Alondra",
-        "puntaje": 8,
-        "ruta_imagen": "",
-        "emoji": "🦓"
-    },
-    {
-        "id": 14,
-        "nombre": "Maru",
-        "puntaje": 33,
-        "ruta_imagen": "",
-        "emoji": "🐅"
-    },
-    {
-        "id": 15,
-        "nombre": "Santi",
-        "puntaje": 22,
-        "ruta_imagen": "",
-        "emoji": "🐪"
-    },
-    {
-        "id": 16,
-        "nombre": "Samu",
-        "puntaje": 17,
-        "ruta_imagen": "",
-        "emoji": "🦙"
-    },
-    {
-        "id": 17,
-        "nombre": "Cristian",
-        "puntaje": 2,
-        "ruta_imagen": "",
-        "emoji": "🦒"
-    },
-    {
-        "id": 18,
-        "nombre": "Francisco",
-        "puntaje": 1,
-        "ruta_imagen": "",
-        "emoji": "🦖"
-    },
-    {
-        "id": 19,
-        "nombre": "Elías",
-        "puntaje": 2,
-        "ruta_imagen": "",
-        "emoji": "🐕"
-    },
-    {
-        "id": 20,
-        "nombre": "Paula",
-        "puntaje": 7,
-        "ruta_imagen": "",
-        "emoji": "🐆"
-    },
-    {
-        "id": 21,
-        "nombre": "Isma",
-        "puntaje": 16,
-        "ruta_imagen": "",
-        "emoji": "🐴"
-    },
-    {
-        "id": 22,
-        "nombre": "Maricel",
-        "puntaje": 17,
-        "ruta_imagen": "",
-        "emoji": "🐎"
-    },
-    {
-        "id": 23,
-        "nombre": "Arturo",
-        "puntaje": 10,
-        "ruta_imagen": "",
-        "emoji": "🦓"
-    },
-    {
-        "id": 24,
-        "nombre": "Sofi",
-        "puntaje": 10,
-        "ruta_imagen": "",
-        "emoji": "🦄"
-    },
-    {
-        "id": 25,
-        "nombre": "Nacho",
-        "puntaje": 9,
-        "ruta_imagen": "",
-        "emoji": "🦓"
-    },
-    {
-        "id": 26,
-        "nombre": "German",
-        "puntaje": 13,
-        "ruta_imagen": "",
-        "emoji": "🐪"
-    },
-    {
-        "id": 27,
-        "nombre": "Benja",
-        "puntaje": 5,
-        "ruta_imagen": "",
-        "emoji": "🦙"
-    },
-    {
-        "id": 28,
-        "nombre": "Alonso",
-        "puntaje": 16,
-        "ruta_imagen": "",
-        "emoji": "🦒"
-    },
-    {
-        "id": 29,
-        "nombre": "Barbara",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🦄"
-    },
-    {
-        "id": 30,
-        "nombre": "Esperanza",
-        "puntaje": 6,
-        "ruta_imagen": "",
-        "emoji": "🐕"
-    },
-    {
-        "id": 31,
-        "nombre": "Yarella",
-        "puntaje": 12,
-        "ruta_imagen": "",
-        "emoji": "🐴"
-    },
-    {
-        "id": 32,
-        "nombre": "Guille",
-        "puntaje": 4,
-        "ruta_imagen": "",
-        "emoji": "🦖"
-    },
-    {
-        "id": 33,
-        "nombre": "Bastian",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🐎"
-    },
-    {
-        "id": 34,
-        "nombre": "Nathaly",
-        "puntaje": 1,
-        "ruta_imagen": "",
-        "emoji": "🦄"
-    }
+    "ultima_actualizacion": "09/06/2026 23:42:14"
+  },
+  {
+    "id": 14,
+    "nombre": "Maru",
+    "puntaje": 33,
+    "ruta_imagen": "",
+    "emoji": "🐅",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 15,
+    "nombre": "Santi",
+    "puntaje": 22,
+    "ruta_imagen": "",
+    "emoji": "🐪",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 16,
+    "nombre": "Samu",
+    "puntaje": 17,
+    "ruta_imagen": "",
+    "emoji": "🦙",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 17,
+    "nombre": "Cristian",
+    "puntaje": 2,
+    "ruta_imagen": "",
+    "emoji": "🦒",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 18,
+    "nombre": "Francisco",
+    "puntaje": 1,
+    "ruta_imagen": "",
+    "emoji": "🦖",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 19,
+    "nombre": "Elías",
+    "puntaje": 2,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 20,
+    "nombre": "Paula",
+    "puntaje": 7,
+    "ruta_imagen": "",
+    "emoji": "🐆",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 21,
+    "nombre": "Isma",
+    "puntaje": 16,
+    "ruta_imagen": "",
+    "emoji": "🐴",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 22,
+    "nombre": "Maricel",
+    "puntaje": 17,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 23,
+    "nombre": "Arturo",
+    "puntaje": 10,
+    "ruta_imagen": "",
+    "emoji": "🦓",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 24,
+    "nombre": "Sofi",
+    "puntaje": 10,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 25,
+    "nombre": "Nacho",
+    "puntaje": 9,
+    "ruta_imagen": "",
+    "emoji": "🦓",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 26,
+    "nombre": "German",
+    "puntaje": 13,
+    "ruta_imagen": "",
+    "emoji": "🐪",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 27,
+    "nombre": "Benja",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🦙",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 28,
+    "nombre": "Alonso",
+    "puntaje": 16,
+    "ruta_imagen": "",
+    "emoji": "🦒",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 29,
+    "nombre": "Barbara",
+    "puntaje": 3,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 30,
+    "nombre": "Esperanza",
+    "puntaje": 6,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 31,
+    "nombre": "Yarella",
+    "puntaje": 12,
+    "ruta_imagen": "",
+    "emoji": "🐴",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 32,
+    "nombre": "Guille",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🦖",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 33,
+    "nombre": "Bastian",
+    "puntaje": 3,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 34,
+    "nombre": "Nathaly",
+    "puntaje": 1,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  }
 ]

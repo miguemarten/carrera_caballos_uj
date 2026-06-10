@@ -450,7 +450,10 @@
     <!-- BARRA SUPERIOR -->
     <div class="top-bar">
         <h1>🏇 DESAFÍO: GALOPE CON PROPÓSITO</h1>
-        <div class="meta-info">META: <span id="metaDisplay">100</span> PTS</div>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <div class="meta-info" style="font-size: 8px; color: var(--accent-cyan); font-family: var(--font-pixel);">ÚLTIMA ACT: <span id="globalUpdateDisplay">Sin actualizaciones</span></div>
+            <div class="meta-info">META: <span id="metaDisplay">100</span> PTS</div>
+        </div>
     </div>
 
     <!-- CONTENEDOR DE CARRILES -->
@@ -518,11 +521,73 @@
             };
         }
 
-        // ──────────────────────────────────────────
-        // 🎨  Render de la carrera
-        // ──────────────────────────────────────────
+        function obtenerFechaUltimoSabado(dateStr) {
+            if (!dateStr) return '';
+            const parts = dateStr.split(' ');
+            if (parts.length !== 2) return '';
+            const dateParts = parts[0].split('/');
+            const timeParts = parts[1].split(':');
+            if (dateParts.length !== 3 || timeParts.length !== 3) return '';
+            
+            const date = new Date(
+                parseInt(dateParts[2]), 
+                parseInt(dateParts[1]) - 1, 
+                parseInt(dateParts[0]), 
+                parseInt(timeParts[0]), 
+                parseInt(timeParts[1]), 
+                parseInt(timeParts[2])
+            );
+            
+            const day = date.getDay();
+            const daysToSubtract = (day + 1) % 7;
+            date.setDate(date.getDate() - daysToSubtract);
+            
+            const dd = String(date.getDate()).padStart(2, '0');
+            const mm = String(date.getMonth() + 1).padStart(2, '0');
+            const yyyy = date.getFullYear();
+            return `${dd}/${mm}/${yyyy}`;
+        }
+
+        function obtenerUltimaActualizacionGlobal(list) {
+            let maxDate = null;
+            let maxTime = 0;
+            
+            (list || []).forEach(p => {
+                if (p.ultima_actualizacion) {
+                    const parts = p.ultima_actualizacion.split(' ');
+                    if (parts.length === 2) {
+                        const dateParts = parts[0].split('/');
+                        const timeParts = parts[1].split(':');
+                        if (dateParts.length === 3 && timeParts.length === 3) {
+                            const timeVal = new Date(
+                                parseInt(dateParts[2]), 
+                                parseInt(dateParts[1]) - 1, 
+                                parseInt(dateParts[0]), 
+                                parseInt(timeParts[0]), 
+                                parseInt(timeParts[1]), 
+                                parseInt(timeParts[2])
+                            ).getTime();
+                            if (timeVal > maxTime) {
+                                maxTime = timeVal;
+                                maxDate = p.ultima_actualizacion;
+                            }
+                        }
+                    }
+                }
+            });
+            
+            if (!maxDate) return 'Sin actualizaciones';
+            return obtenerFechaUltimoSabado(maxDate);
+        }
+
         function renderCarrera(oldData) {
             const container = document.getElementById('raceContainer');
+
+            const globalDate = obtenerUltimaActualizacionGlobal(participantes);
+            const dateEl = document.getElementById('globalUpdateDisplay');
+            if (dateEl) {
+                dateEl.textContent = globalDate;
+            }
 
             if (participantes.length === 0) {
                 container.innerHTML = `

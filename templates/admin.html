@@ -525,7 +525,12 @@
 
     <!-- HEADER -->
     <div class="header">
-        <h1>🏇 Panel de Control</h1>
+        <div>
+            <h1>🏇 Panel de Control</h1>
+            <div style="font-size: 8px; color: var(--accent-cyan); font-family: var(--font-pixel); margin-top: 6px; letter-spacing: 0.5px;">
+                Último Sábado con Actividad: <span id="globalUpdateDate">Sin actualizaciones</span>
+            </div>
+        </div>
         <div class="header-actions">
             <button class="btn btn-cargar" onclick="cargarSesion()">📂 Cargar Sesión</button>
             <button class="btn btn-nueva" onclick="nuevaCarrera()">🔄 Nueva Carrera</button>
@@ -640,7 +645,7 @@
         async function asignarPuntos(id, puntos, catNombre) {
             await api('/api/puntos', {
                 method: 'POST',
-                body: JSON.stringify({ id, puntos })
+                body: JSON.stringify({ id, puntos, categoria: catNombre })
             });
             await cargarSesion();
             toast(`+${puntos} pts (${catNombre})`, 'success');
@@ -657,6 +662,68 @@
         }
 
         // ──────────────────────────────────────────
+        // 📅 Helper para fecha del último sábado
+        // ──────────────────────────────────────────
+        function obtenerFechaUltimoSabado(dateStr) {
+            if (!dateStr) return '';
+            const parts = dateStr.split(' ');
+            if (parts.length !== 2) return '';
+            const dateParts = parts[0].split('/');
+            const timeParts = parts[1].split(':');
+            if (dateParts.length !== 3 || timeParts.length !== 3) return '';
+            
+            const date = new Date(
+                parseInt(dateParts[2]), 
+                parseInt(dateParts[1]) - 1, 
+                parseInt(dateParts[0]), 
+                parseInt(timeParts[0]), 
+                parseInt(timeParts[1]), 
+                parseInt(timeParts[2])
+            );
+            
+            const day = date.getDay();
+            const daysToSubtract = (day + 1) % 7;
+            date.setDate(date.getDate() - daysToSubtract);
+            
+            const dd = String(date.getDate()).padStart(2, '0');
+            const mm = String(date.getMonth() + 1).padStart(2, '0');
+            const yyyy = date.getFullYear();
+            return `${dd}/${mm}/${yyyy}`;
+        }
+
+        function obtenerUltimaActualizacionGlobal(list) {
+            let maxDate = null;
+            let maxTime = 0;
+            
+            (list || []).forEach(p => {
+                if (p.ultima_actualizacion) {
+                    const parts = p.ultima_actualizacion.split(' ');
+                    if (parts.length === 2) {
+                        const dateParts = parts[0].split('/');
+                        const timeParts = parts[1].split(':');
+                        if (dateParts.length === 3 && timeParts.length === 3) {
+                            const timeVal = new Date(
+                                parseInt(dateParts[2]), 
+                                parseInt(dateParts[1]) - 1, 
+                                parseInt(dateParts[0]), 
+                                parseInt(timeParts[0]), 
+                                parseInt(timeParts[1]), 
+                                parseInt(timeParts[2])
+                            ).getTime();
+                            if (timeVal > maxTime) {
+                                maxTime = timeVal;
+                                maxDate = p.ultima_actualizacion;
+                            }
+                        }
+                    }
+                }
+            });
+            
+            if (!maxDate) return 'Sin actualizaciones';
+            return obtenerFechaUltimoSabado(maxDate);
+        }
+
+        // ──────────────────────────────────────────
         // 🎨  Render
         // ──────────────────────────────────────────
         const COLORES = ['#ff2975', '#00fff5', '#ffe66d', '#7fff00', '#a855f7', '#ff6b9d', '#4da6ff', '#ff9f43', '#2ed573', '#ffa502'];
@@ -664,6 +731,12 @@
 
         function renderLista() {
             const container = document.getElementById('listaParticipantes');
+
+            const globalDate = obtenerUltimaActualizacionGlobal(participantes);
+            const dateEl = document.getElementById('globalUpdateDate');
+            if (dateEl) {
+                dateEl.textContent = globalDate;
+            }
 
             if (participantes.length === 0) {
                 container.innerHTML = `
@@ -691,6 +764,12 @@
                     </select>
                 ` : '';
 
+                // Build breakdown list
+                const desgloseHtml = categorias.map(cat => {
+                    const pts = (p.desglose && p.desglose[cat.nombre]) || 0;
+                    return `<span class="breakdown-badge" style="font-size: 8px; padding: 2px 5px; background: rgba(255,255,255,0.05); border-radius: 4px; border: 1px solid ${pts > 0 ? 'var(--accent-yellow)' : '#333'}" title="${cat.nombre}">${cat.nombre.substring(0, 3)}: <strong>${pts}</strong></span>`;
+                }).join(' ');
+
                 const botones = categorias.map((cat) => `
           <button class="btn-pts cat-${cat.originalIndex}" onclick="asignarPuntos(${p.id}, ${cat.valor}, '${cat.nombre}')">
             <span class="pts-label">${cat.nombre}</span>
@@ -707,6 +786,9 @@
                 ${isWinner ? '<span class="p-winner-badge">🏆 ¡GANADOR!</span>' : ''}
               </div>
               <div class="p-score"><strong>${p.puntaje}</strong> / ${puntajeMeta} pts (${pct}%)</div>
+              <div class="p-last-update" style="font-size: 10px; color: var(--text-dim); margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px;">
+                ${desgloseHtml}
+              </div>
             </div>
             <div class="p-actions">${botones}</div>
             <button class="btn-delete" onclick="eliminarParticipante(${p.id}, '${p.nombre.replace(/'/g, "\\'")}')" title="Eliminar">✕</button>

@@ -64,6 +64,18 @@ def cargar_datos():
         participantes = []
         guardar_datos()
 
+    # Normalizar participantes existentes
+    modificado = False
+    for p in participantes:
+        if "desglose" not in p or p["desglose"] is None:
+            p["desglose"] = {}
+            modificado = True
+        if "ultima_actualizacion" not in p:
+            p["ultima_actualizacion"] = ""
+            modificado = True
+    if modificado:
+        guardar_datos()
+
 
 def guardar_datos():
     """Sobrescribe participantes.json con el estado actual."""
@@ -141,7 +153,9 @@ def api_agregar():
             "nombre": nombre,
             "puntaje": 0,
             "ruta_imagen": "",  # <-- Asignar ruta a una foto para usar como avatar
-            "emoji": body.get("emoji", "🐴")
+            "emoji": body.get("emoji", "🐴"),
+            "desglose": {},
+            "ultima_actualizacion": ""
         }
         participantes.append(nuevo)
         guardar_datos()
@@ -182,19 +196,28 @@ def api_eliminar(pid):
 def api_puntos():
     """
     Asigna puntos a un participante.
-    Body: { "id": 1, "puntos": 10 }
+    Body: { "id": 1, "puntos": 10, "categoria": "..." }
     """
     body = request.get_json(force=True)
     pid = body.get("id")
     puntos = body.get("puntos", 0)
+    categoria = body.get("categoria")
 
     if pid is None:
         return jsonify({"error": "Se requiere el ID del participante"}), 400
+
+    import datetime
+    ahora_str = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
     with data_lock:
         for p in participantes:
             if p["id"] == pid:
                 p["puntaje"] += puntos
+                if "desglose" not in p or p["desglose"] is None:
+                    p["desglose"] = {}
+                if categoria:
+                    p["desglose"][categoria] = p["desglose"].get(categoria, 0) + puntos
+                p["ultima_actualizacion"] = ahora_str
                 guardar_datos()
                 notificar_cambio()
                 return jsonify(p)
@@ -207,6 +230,8 @@ def api_nueva_sesion():
     with data_lock:
         for p in participantes:
             p["puntaje"] = 0
+            p["desglose"] = {}
+            p["ultima_actualizacion"] = ""
         guardar_datos()
         notificar_cambio()
     return jsonify({"ok": True, "participantes": participantes})
