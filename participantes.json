@@ -1,342 +1,428 @@
 [
-    {
-        "id": 2,
-        "nombre": "Josefa",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🐎",
-        "desglose": {},
-        "ultima_actualizacion": ""
+  {
+    "id": 2,
+    "nombre": "Josefa",
+    "puntaje": 3,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 3,
+    "nombre": "Marti",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {
+      "Asistencia": 1,
+      "Participación": 1
     },
-    {
-        "id": 3,
-        "nombre": "Marti",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🦄",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:18:42"
+  },
+  {
+    "id": 5,
+    "nombre": "Emi",
+    "puntaje": 36,
+    "ruta_imagen": "",
+    "emoji": "🦙",
+    "desglose": {
+      "Traer Biblia": 2,
+      "Participación": 2,
+      "Asistencia": 1
     },
-    {
-        "id": 5,
-        "nombre": "Emi",
-        "puntaje": 33,
-        "ruta_imagen": "",
-        "emoji": "🦙",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:32"
+    "ultima_actualizacion": "23/06/2026 00:18:50"
+  },
+  {
+    "id": 6,
+    "nombre": "Isi",
+    "puntaje": 14,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {
+      "Asistencia": 1,
+      "Participación": 1
     },
-    {
-        "id": 6,
-        "nombre": "Isi",
-        "puntaje": 12,
-        "ruta_imagen": "",
-        "emoji": "🐕",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:19:37"
+  },
+  {
+    "id": 7,
+    "nombre": "Rosita",
+    "puntaje": 21,
+    "ruta_imagen": "",
+    "emoji": "🐆",
+    "desglose": {
+      "Traer Biblia": 1,
+      "Puntualidad": 1,
+      "Participación": 1
     },
-    {
-        "id": 7,
-        "nombre": "Rosita",
-        "puntaje": 21,
-        "ruta_imagen": "",
-        "emoji": "🐆",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:07"
+    "ultima_actualizacion": "09/06/2026 23:56:07"
+  },
+  {
+    "id": 8,
+    "nombre": "Paulette",
+    "puntaje": 15,
+    "ruta_imagen": "",
+    "emoji": "🦖",
+    "desglose": {
+      "Traer Biblia": 1,
+      "Puntualidad": 1,
+      "Participación": 1
     },
-    {
-        "id": 8,
-        "nombre": "Paulette",
-        "puntaje": 15,
-        "ruta_imagen": "",
-        "emoji": "🦖",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:09"
+    "ultima_actualizacion": "09/06/2026 23:56:09"
+  },
+  {
+    "id": 9,
+    "nombre": "Mati",
+    "puntaje": 20,
+    "ruta_imagen": "",
+    "emoji": "🐴",
+    "desglose": {
+      "Asistencia": 1,
+      "Participación": 1
     },
-    {
-        "id": 9,
-        "nombre": "Mati",
-        "puntaje": 18,
-        "ruta_imagen": "",
-        "emoji": "🐴",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:20:15"
+  },
+  {
+    "id": 10,
+    "nombre": "Franco",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🐅",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 11,
+    "nombre": "Paz",
+    "puntaje": 24,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {
+      "Traer Biblia": 1,
+      "Puntualidad": 1,
+      "Participación": 1
     },
-    {
-        "id": 10,
-        "nombre": "Franco",
-        "puntaje": 4,
-        "ruta_imagen": "",
-        "emoji": "🐅",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "09/06/2026 23:56:04"
+  },
+  {
+    "id": 12,
+    "nombre": "Denisse",
+    "puntaje": 17,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 13,
+    "nombre": "Alondra",
+    "puntaje": 8,
+    "ruta_imagen": "",
+    "emoji": "🦓",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 14,
+    "nombre": "Maru",
+    "puntaje": 39,
+    "ruta_imagen": "",
+    "emoji": "🐅",
+    "desglose": {
+      "Asistencia": 1,
+      "Traer Biblia": 1,
+      "Puntualidad": 1,
+      "Traer Visita": 2,
+      "Participación": 1
     },
-    {
-        "id": 11,
-        "nombre": "Paz",
-        "puntaje": 24,
-        "ruta_imagen": "",
-        "emoji": "🐎",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:04"
+    "ultima_actualizacion": "23/06/2026 00:19:27"
+  },
+  {
+    "id": 15,
+    "nombre": "Santi",
+    "puntaje": 27,
+    "ruta_imagen": "",
+    "emoji": "🐪",
+    "desglose": {
+      "Traer Biblia": 2,
+      "Participación": 2,
+      "Asistencia": 1
     },
-    {
-        "id": 12,
-        "nombre": "Denisse",
-        "puntaje": 17,
-        "ruta_imagen": "",
-        "emoji": "🦄",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:19:13"
+  },
+  {
+    "id": 16,
+    "nombre": "Samu",
+    "puntaje": 22,
+    "ruta_imagen": "",
+    "emoji": "🦙",
+    "desglose": {
+      "Traer Biblia": 2,
+      "Participación": 2,
+      "Asistencia": 1
     },
-    {
-        "id": 13,
-        "nombre": "Alondra",
-        "puntaje": 8,
-        "ruta_imagen": "",
-        "emoji": "🦓",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:19:15"
+  },
+  {
+    "id": 17,
+    "nombre": "Cristian",
+    "puntaje": 2,
+    "ruta_imagen": "",
+    "emoji": "🦒",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 18,
+    "nombre": "Francisco",
+    "puntaje": 1,
+    "ruta_imagen": "",
+    "emoji": "🦖",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 19,
+    "nombre": "Elías",
+    "puntaje": 8,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {
+      "Asistencia": 1,
+      "Traer Biblia": 1,
+      "Puntualidad": 1,
+      "Traer Visita": 2,
+      "Participación": 1
     },
-    {
-        "id": 14,
-        "nombre": "Maru",
-        "puntaje": 33,
-        "ruta_imagen": "",
-        "emoji": "🐅",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:19:05"
+  },
+  {
+    "id": 20,
+    "nombre": "Paula",
+    "puntaje": 7,
+    "ruta_imagen": "",
+    "emoji": "🐆",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 21,
+    "nombre": "Isma",
+    "puntaje": 21,
+    "ruta_imagen": "",
+    "emoji": "🐴",
+    "desglose": {
+      "Traer Biblia": 2,
+      "Participación": 2,
+      "Asistencia": 1
     },
-    {
-        "id": 15,
-        "nombre": "Santi",
-        "puntaje": 24,
-        "ruta_imagen": "",
-        "emoji": "🐪",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:57:10"
+    "ultima_actualizacion": "23/06/2026 00:18:54"
+  },
+  {
+    "id": 22,
+    "nombre": "Maricel",
+    "puntaje": 22,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {
+      "Puntualidad": 1,
+      "Participación": 2,
+      "Asistencia": 1,
+      "Traer Biblia": 1
     },
-    {
-        "id": 16,
-        "nombre": "Samu",
-        "puntaje": 19,
-        "ruta_imagen": "",
-        "emoji": "🦙",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:57:09"
+    "ultima_actualizacion": "23/06/2026 00:19:41"
+  },
+  {
+    "id": 23,
+    "nombre": "Arturo",
+    "puntaje": 10,
+    "ruta_imagen": "",
+    "emoji": "🦓",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 24,
+    "nombre": "Sofi",
+    "puntaje": 10,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 25,
+    "nombre": "Nacho",
+    "puntaje": 11,
+    "ruta_imagen": "",
+    "emoji": "🦓",
+    "desglose": {
+      "Puntualidad": 1,
+      "Participación": 1
     },
-    {
-        "id": 17,
-        "nombre": "Cristian",
-        "puntaje": 2,
-        "ruta_imagen": "",
-        "emoji": "🦒",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "09/06/2026 23:56:48"
+  },
+  {
+    "id": 26,
+    "nombre": "German",
+    "puntaje": 13,
+    "ruta_imagen": "",
+    "emoji": "🐪",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 27,
+    "nombre": "Benja",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🦙",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 28,
+    "nombre": "Alonso",
+    "puntaje": 22,
+    "ruta_imagen": "",
+    "emoji": "🦒",
+    "desglose": {
+      "Traer Biblia": 2,
+      "Puntualidad": 1,
+      "Participación": 2,
+      "Asistencia": 1
     },
-    {
-        "id": 18,
-        "nombre": "Francisco",
-        "puntaje": 1,
-        "ruta_imagen": "",
-        "emoji": "🦖",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:19:51"
+  },
+  {
+    "id": 29,
+    "nombre": "Barbara",
+    "puntaje": 3,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 30,
+    "nombre": "Esperanza",
+    "puntaje": 6,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 31,
+    "nombre": "Yarella",
+    "puntaje": 12,
+    "ruta_imagen": "",
+    "emoji": "🐴",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 32,
+    "nombre": "Guille",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🦖",
+    "desglose": {},
+    "ultima_actualizacion": ""
+  },
+  {
+    "id": 33,
+    "nombre": "Bastian",
+    "puntaje": 9,
+    "ruta_imagen": "",
+    "emoji": "🐎",
+    "desglose": {
+      "Participación": 2,
+      "Asistencia": 1,
+      "Puntualidad": 1,
+      "Traer Visita": 2
     },
-    {
-        "id": 19,
-        "nombre": "Elías",
-        "puntaje": 2,
-        "ruta_imagen": "",
-        "emoji": "🐕",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:20:02"
+  },
+  {
+    "id": 34,
+    "nombre": "Nathaly",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {
+      "Traer Biblia": 1,
+      "Puntualidad": 1,
+      "Participación": 1
     },
-    {
-        "id": 20,
-        "nombre": "Paula",
-        "puntaje": 7,
-        "ruta_imagen": "",
-        "emoji": "🐆",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "09/06/2026 23:56:50"
+  },
+  {
+    "id": 35,
+    "nombre": "Cristobal",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {
+      "Traer Visita": 2,
+      "Participación": 2,
+      "Asistencia": 1
     },
-    {
-        "id": 21,
-        "nombre": "Isma",
-        "puntaje": 18,
-        "ruta_imagen": "",
-        "emoji": "🐴",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:55:59"
+    "ultima_actualizacion": "23/06/2026 00:19:54"
+  },
+  {
+    "id": 36,
+    "nombre": "Rod",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🦄",
+    "desglose": {
+      "Asistencia": 1,
+      "Traer Biblia": 1,
+      "Traer Visita": 2,
+      "Participación": 1
     },
-    {
-        "id": 22,
-        "nombre": "Maricel",
-        "puntaje": 19,
-        "ruta_imagen": "",
-        "emoji": "🐎",
-        "desglose": {
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:20"
+    "ultima_actualizacion": "23/06/2026 00:19:23"
+  },
+  {
+    "id": 37,
+    "nombre": "Vicente",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🐕",
+    "desglose": {
+      "Asistencia": 1,
+      "Traer Visita": 2,
+      "Participación": 1
     },
-    {
-        "id": 23,
-        "nombre": "Arturo",
-        "puntaje": 10,
-        "ruta_imagen": "",
-        "emoji": "🦓",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:19:46"
+  },
+  {
+    "id": 38,
+    "nombre": "Benja 2",
+    "puntaje": 5,
+    "ruta_imagen": "",
+    "emoji": "🐪",
+    "desglose": {
+      "Asistencia": 1,
+      "Puntualidad": 1,
+      "Traer Visita": 2,
+      "Participación": 1
     },
-    {
-        "id": 24,
-        "nombre": "Sofi",
-        "puntaje": 10,
-        "ruta_imagen": "",
-        "emoji": "🦄",
-        "desglose": {},
-        "ultima_actualizacion": ""
+    "ultima_actualizacion": "23/06/2026 00:20:04"
+  },
+  {
+    "id": 39,
+    "nombre": "Pascal",
+    "puntaje": 4,
+    "ruta_imagen": "",
+    "emoji": "🐆",
+    "desglose": {
+      "Asistencia": 1,
+      "Traer Visita": 2,
+      "Participación": 1
     },
-    {
-        "id": 25,
-        "nombre": "Nacho",
-        "puntaje": 11,
-        "ruta_imagen": "",
-        "emoji": "🦓",
-        "desglose": {
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:48"
-    },
-    {
-        "id": 26,
-        "nombre": "German",
-        "puntaje": 13,
-        "ruta_imagen": "",
-        "emoji": "🐪",
-        "desglose": {},
-        "ultima_actualizacion": ""
-    },
-    {
-        "id": 27,
-        "nombre": "Benja",
-        "puntaje": 5,
-        "ruta_imagen": "",
-        "emoji": "🦙",
-        "desglose": {},
-        "ultima_actualizacion": ""
-    },
-    {
-        "id": 28,
-        "nombre": "Alonso",
-        "puntaje": 19,
-        "ruta_imagen": "",
-        "emoji": "🦒",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:36"
-    },
-    {
-        "id": 29,
-        "nombre": "Barbara",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🦄",
-        "desglose": {},
-        "ultima_actualizacion": ""
-    },
-    {
-        "id": 30,
-        "nombre": "Esperanza",
-        "puntaje": 6,
-        "ruta_imagen": "",
-        "emoji": "🐕",
-        "desglose": {},
-        "ultima_actualizacion": ""
-    },
-    {
-        "id": 31,
-        "nombre": "Yarella",
-        "puntaje": 12,
-        "ruta_imagen": "",
-        "emoji": "🐴",
-        "desglose": {},
-        "ultima_actualizacion": ""
-    },
-    {
-        "id": 32,
-        "nombre": "Guille",
-        "puntaje": 4,
-        "ruta_imagen": "",
-        "emoji": "🦖",
-        "desglose": {},
-        "ultima_actualizacion": ""
-    },
-    {
-        "id": 33,
-        "nombre": "Bastian",
-        "puntaje": 4,
-        "ruta_imagen": "",
-        "emoji": "🐎",
-        "desglose": {
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:54"
-    },
-    {
-        "id": 34,
-        "nombre": "Nathaly",
-        "puntaje": 4,
-        "ruta_imagen": "",
-        "emoji": "🦄",
-        "desglose": {
-            "Traer Biblia": 1,
-            "Puntualidad": 1,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:56:50"
-    },
-    {
-        "id": 35,
-        "nombre": "Cristobal",
-        "puntaje": 3,
-        "ruta_imagen": "",
-        "emoji": "🐕",
-        "desglose": {
-            "Traer Visita": 2,
-            "Participación": 1
-        },
-        "ultima_actualizacion": "09/06/2026 23:55:44"
-    }
+    "ultima_actualizacion": "23/06/2026 00:20:22"
+  }
 ]
