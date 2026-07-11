@@ -133,14 +133,15 @@
             cursor: pointer;
             transition: border-color 0.2s;
         }
+
         .skin-selector:focus {
             border-color: var(--accent-cyan);
             box-shadow: 0 0 10px #00fff530;
         }
-        
+
         .p-skin-select {
             font-size: 14px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid #333355;
             border-radius: 4px;
             color: var(--text-main);
@@ -527,7 +528,8 @@
     <div class="header">
         <div>
             <h1>🏇 Panel de Control</h1>
-            <div style="font-size: 8px; color: var(--accent-cyan); font-family: var(--font-pixel); margin-top: 6px; letter-spacing: 0.5px;">
+            <div
+                style="font-size: 8px; color: var(--accent-cyan); font-family: var(--font-pixel); margin-top: 6px; letter-spacing: 0.5px;">
                 Último Sábado con Actividad: <span id="globalUpdateDate">Sin actualizaciones</span>
             </div>
         </div>
@@ -552,6 +554,23 @@
             <option value="🦖">🦖</option>
             <option value="🐕">🐕</option>
             <option value="🐆">🐆</option>
+            <option value="🐒">🐒</option>
+            <option value="🦍">🦍</option>
+            <option value="🦧">🦧</option>
+            <option value="🦮">🦮</option>
+            <option value="🐕‍🦺">🐕‍🦺</option>
+            <option value="🐈">🐈</option>
+            <option value="🐈‍⬛">🐈‍⬛</option>
+            <option value="🐩">🐩</option>
+            <option value="🦨">🦨</option>
+            <option value="🦥">🦥</option>
+            <option value="🦝">🦝</option>
+            <option value="🦦">🦦</option>
+            <option value="🐁">🐁</option>
+            <option value="🐀">🐀</option>
+            <option value="🦎">🦎</option>
+            <option value="🦜">🦜</option>
+            <option value="🐍">🐍</option>
         </select>
         <input type="text" id="inputNombre" placeholder="Nombre del participante..."
             onkeydown="if(event.key==='Enter') agregarParticipante()">
@@ -671,20 +690,20 @@
             const dateParts = parts[0].split('/');
             const timeParts = parts[1].split(':');
             if (dateParts.length !== 3 || timeParts.length !== 3) return '';
-            
+
             const date = new Date(
-                parseInt(dateParts[2]), 
-                parseInt(dateParts[1]) - 1, 
-                parseInt(dateParts[0]), 
-                parseInt(timeParts[0]), 
-                parseInt(timeParts[1]), 
+                parseInt(dateParts[2]),
+                parseInt(dateParts[1]) - 1,
+                parseInt(dateParts[0]),
+                parseInt(timeParts[0]),
+                parseInt(timeParts[1]),
                 parseInt(timeParts[2])
             );
-            
+
             const day = date.getDay();
             const daysToSubtract = (day + 1) % 7;
             date.setDate(date.getDate() - daysToSubtract);
-            
+
             const dd = String(date.getDate()).padStart(2, '0');
             const mm = String(date.getMonth() + 1).padStart(2, '0');
             const yyyy = date.getFullYear();
@@ -694,7 +713,7 @@
         function obtenerUltimaActualizacionGlobal(list) {
             let maxDate = null;
             let maxTime = 0;
-            
+
             (list || []).forEach(p => {
                 if (p.ultima_actualizacion) {
                     const parts = p.ultima_actualizacion.split(' ');
@@ -703,11 +722,11 @@
                         const timeParts = parts[1].split(':');
                         if (dateParts.length === 3 && timeParts.length === 3) {
                             const timeVal = new Date(
-                                parseInt(dateParts[2]), 
-                                parseInt(dateParts[1]) - 1, 
-                                parseInt(dateParts[0]), 
-                                parseInt(timeParts[0]), 
-                                parseInt(timeParts[1]), 
+                                parseInt(dateParts[2]),
+                                parseInt(dateParts[1]) - 1,
+                                parseInt(dateParts[0]),
+                                parseInt(timeParts[0]),
+                                parseInt(timeParts[1]),
                                 parseInt(timeParts[2])
                             ).getTime();
                             if (timeVal > maxTime) {
@@ -718,7 +737,7 @@
                     }
                 }
             });
-            
+
             if (!maxDate) return 'Sin actualizaciones';
             return obtenerFechaUltimoSabado(maxDate);
         }
@@ -727,7 +746,7 @@
         // 🎨  Render
         // ──────────────────────────────────────────
         const COLORES = ['#ff2975', '#00fff5', '#ffe66d', '#7fff00', '#a855f7', '#ff6b9d', '#4da6ff', '#ff9f43', '#2ed573', '#ffa502'];
-        const EMOJIS_DISPONIBLES = ['🐴', '🐎', '🦄', '🦓', '🐪', '🦙', '🦒', '🐅', '🦖', '🐕', '🐆'];
+        const EMOJIS_DISPONIBLES = ['🐴', '🐎', '🦄', '🦓', '🐪', '🦙', '🦒', '🐅', '🦖', '🐕', '🐆', '🐒', '🦍', '🦧', '🦮', '🐕‍🦺', '🐈', '🐈‍⬛', '🐩', '🦨', '🦥', '🦝', '🦦', '🐁', '🐀', '🦎', '🦜', '🐍'];
 
         function renderLista() {
             const container = document.getElementById('listaParticipantes');
